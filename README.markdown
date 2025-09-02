@@ -2,7 +2,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://img.shields.io/badge/build-Alpha-brightgreen.svg)](https://github.com/DeMoD-LLC/idTech4-DeMoD)
-[![Contributors](https://img.shields.io/badge/contributors-2-orange.svg)](https://github.com/DeMoD-LLC/idTech4-DeMoD/graphs/contributors)
+[![Contributors](https://img.shields.io/badge/contributors-1-orange.svg)](https://github.com/DeMoD-LLC/idTech4-DeMoD/graphs/contributors)
 [![Coverage](https://img.shields.io/badge/Coverage-85%25-green.svg)](https://github.com/DeMoD-LLC/idTech4-DeMoD)
 
 ## Project Overview
