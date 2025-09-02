@@ -1,4 +1,4 @@
-# idTech4-DeMoD: Enhanced idTech4 Fork with DSP Audio and DCF Networking
+# idTech4-DeMoD: Enhanced idTech4 Fork with DSP Audio and DCF Networking for Petabyte Madness
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://img.shields.io/badge/build-Alpha-brightgreen.svg)](https://github.com/DeMoD-LLC/idTech4-DeMoD)
@@ -7,17 +7,17 @@
 
 ## Project Overview
 
-**idTech4-DeMoD** is a fork of the idTech4 engine (based on Dhewm3) that integrates two powerful mods developed by DeMoD LLC: the **idTech4-DSP-Audio** mod for hardware-accelerated audio processing and the **IDTECH4-DCF-PLUGIN** for enhanced multiplayer networking. This fork combines real-time ray-traced audio effects with low-latency P2P networking, making it ideal for single-player and multiplayer horror/cyberpunk mods like *Petabyte Madness*. It maintains compatibility with idTech4’s core systems (e.g., OpenAL, async networking) while introducing modder-friendly tools, debug features, and robust error handling.
+**idTech4-DeMoD** is a fork of the idTech4 engine (based on Dhewm3), crafted by **DeMoD LLC** specifically to power their upcoming horror/cyberpunk game *Petabyte Madness*. This fork integrates two advanced mods developed by DeMoD LLC: the **idTech4-DSP-Audio** mod for hardware-accelerated audio processing and the **IDTECH4-DCF-PLUGIN** for enhanced multiplayer networking. It combines real-time ray-traced audio effects with low-latency P2P networking, tailored for the immersive single-player and experimental multiplayer experience of *Petabyte Madness*. The fork maintains compatibility with idTech4’s core systems (e.g., OpenAL, async networking) while introducing modder-friendly tools, debug features, and robust error handling.
 
 **Key Features**:
-- **DSP Audio**: Hardware-accelerated audio via USB-connected DSP (e.g., TMS320C674x) with real-time ray tracing, reverb, occlusion, and distortion.
-- **Audio Mode Zones**: Entity-based (`func_audio_mode`) spatial audio zones with smooth blending and scriptable events.
-- **Advanced Networking**: Low-latency P2P with DCF, supporting UDP/TCP/WebSocket/gRPC, zero-copy Protobuf serialization, and a standalone hub server.
-- **Modder-Friendly**: Editor integration (D3Edit), debug tools (e.g., `audioModesDebug`, `dcf_status`), and extensive cVARs.
-- **Portability**: Seamless WebAssembly (WASM) support via Emscripten with WebSocket fallback.
-- **Alpha Status**: Version 1.0, focused on single-player; multiplayer is experimental.
+- **DSP Audio**: Hardware-accelerated audio via USB-connected DSP (e.g., TMS320C674x) with real-time ray tracing, reverb, occlusion, and distortion, designed to enhance the atmospheric depth of *Petabyte Madness*.
+- **Audio Mode Zones**: Entity-based (`func_audio_mode`) spatial audio zones with smooth blending and scriptable events, perfect for dynamic horror/cyberpunk soundscapes.
+- **Advanced Networking**: Low-latency P2P with DCF, supporting UDP/TCP/WebSocket/gRPC, zero-copy Protobuf serialization, and a standalone hub server for *Petabyte Madness* multiplayer.
+- **Modder-Friendly**: Editor integration (D3Edit), debug tools (e.g., `audioModesDebug`, `dcf_status`), and extensive cVARs for modders extending *Petabyte Madness*.
+- **Portability**: Seamless WebAssembly (WASM) support via Emscripten with WebSocket fallback, enabling browser-based play.
+- **Alpha Status**: Version 1.0, optimized for single-player; multiplayer is experimental.
 
-**Note**: This is an alpha release. Test thoroughly in large maps with `com_showFPS 1`. Multiplayer is untested; prioritize single-player.
+**Note**: This is an alpha release developed by DeMoD LLC for *Petabyte Madness*. Test thoroughly in large maps with `com_showFPS 1`. Multiplayer is untested; prioritize single-player.
 
 ## Table of Contents
 - [Features](#features)
@@ -35,24 +35,24 @@
 ## Features
 
 ### Audio (idTech4-DSP-Audio)
-- **Hardware DSP**: Offloads ray tracing, convolution, and effects (e.g., reverb, distortion) to a USB DSP (TMS320C674x, VID:PID 0x0403:0x6010).
+- **Hardware DSP**: Offloads ray tracing, convolution, and effects (e.g., reverb, distortion) to a USB DSP (TMS320C674x, VID:PID 0x0403:0x6010), enhancing *Petabyte Madness*’s immersive audio.
   - Up to 1000 stochastic rays per sound source with 5 bounces for occlusion/diffraction.
   - Uses TI DSPLIB for efficient FIR filtering.
 - **Audio Mode Entities**: `func_audio_mode` defines spatial zones with modes (0-10, e.g., explore, combat) and radii.
   - Smooth blending (lerp) or step transitions between overlapping zones.
-  - Scriptable events (`onPlayerEnter`, `onPlayerExit`) for custom audio cues.
+  - Scriptable events (`onPlayerEnter`, `onPlayerExit`) for custom audio cues in *Petabyte Madness*.
 - **Robust Integration**: Hot-plug USB support, OpenAL fallback (`s_useDSP 0`), batched USB transfers.
 - **Modder QoL**: D3Edit zone placement, debug visualizations (`audioModesDebug 2`), extensible DSP firmware.
 
 ### Networking (IDTECH4-DCF-PLUGIN)
-- **Zero-Copy Networking**: Embeds `idBitMsg` in Protobuf for <0.1% CPU overhead.
+- **Zero-Copy Networking**: Embeds `idBitMsg` in Protobuf for <0.1% CPU overhead, optimized for *Petabyte Madness* multiplayer.
 - **Multi-Transport**: Supports UDP, TCP, WebSocket, and gRPC with frame-integrated health checks.
 - **P2P and Hub**: Self-healing P2P with a standalone hub server for NAT traversal and relay.
 - **WASM Support**: WebSocket fallback for browser compatibility via Emscripten.
 - **Console Integration**: CLI commands (e.g., `dcf_status`) for peer health and transport switching.
 
 ### Player UX
-- Smooth audio mode transitions (`s_audioModeBlendTime`).
+- Smooth audio mode transitions (`s_audioModeBlendTime`) for *Petabyte Madness*’s dynamic environments.
 - Toggleable zones (`s_audioModesEnabled 0`) for accessibility.
 - Seamless multiplayer with hub relay or P2P (`net_dcf_mode 2`).
 
@@ -158,7 +158,7 @@
 
 ## Architecture Overview
 
-The fork integrates DSP audio and DCF networking into idTech4’s core systems. Audio processing offloads to a USB DSP, while networking wraps `idAsyncServer`/`idAsyncClient` with Protobuf/gRPC.
+The fork integrates DSP audio and DCF networking into idTech4’s core systems, tailored for *Petabyte Madness*. Audio processing offloads to a USB DSP, while networking wraps `idAsyncServer`/`idAsyncClient` with Protobuf/gRPC.
 
 ```mermaid
 graph TD
